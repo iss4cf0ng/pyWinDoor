@@ -35,7 +35,7 @@ namespace pyWinSrv
             if (m_IsListening)
                 fnDnsSrvReceive();
 
-            //here is the test
+            //here is the testqwe
         }
 
         public void fnStop()
