@@ -22,7 +22,7 @@ namespace pyWinSrv
             m_UdpClient = new UdpClient(nPort);
         }
 
-        public void fnStart()
+        public override void fnStart()
         {
             m_IsListening = true;
             fnDnsSrvReceive();
@@ -34,11 +34,9 @@ namespace pyWinSrv
 
             if (m_IsListening)
                 fnDnsSrvReceive();
-
-            //here is the testqwe
         }
 
-        public void fnStop()
+        public override void fnStop()
         {
             m_IsListening = false;
         }

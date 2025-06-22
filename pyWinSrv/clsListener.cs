@@ -17,5 +17,15 @@ namespace pyWinSrv
         {
 
         }
+
+        public virtual void fnStart()
+        {
+
+        }
+
+        public virtual void fnStop()
+        {
+
+        }
     }
 }
