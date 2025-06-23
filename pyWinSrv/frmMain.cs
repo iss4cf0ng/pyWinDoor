@@ -56,7 +56,7 @@ namespace pyWinSrv
             foreach (string szName in m_dicListener.Keys)
             {
                 var l = m_dicListener[szName];
-
+                l.fnStart();
             }
         }
         void fnStopListener()

@@ -23,7 +23,20 @@ namespace pyWinSrv
 
         public override void fnStart()
         {
+            m_tcpListener.BeginAcceptSocket(new AsyncCallback(fnTcpListenerAcceptCallback), m_tcpListener);
+        }
 
+        private void fnTcpListenerAcceptCallback(IAsyncResult ar)
+        {
+            if (ar.AsyncState == null)
+                return;
+
+            TcpListener tcpListener = (TcpListener)ar.AsyncState;
+            if (tcpListener == null)
+                return;
+
+            Socket sktClnt = tcpListener.EndAcceptSocket(ar);
+            
         }
 
         public override void fnStop()
