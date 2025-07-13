@@ -40,6 +40,7 @@
             columnHeader1 = new ColumnHeader();
             columnHeader4 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
             groupBox2 = new GroupBox();
             button9 = new Button();
             textBox2 = new TextBox();
@@ -107,16 +108,16 @@
             groupBox1.Controls.Add(listView1);
             groupBox1.Location = new Point(12, 28);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(368, 204);
+            groupBox1.Size = new Size(407, 204);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Transport";
             // 
             // button3
             // 
-            button3.Location = new Point(244, 163);
+            button3.Location = new Point(270, 163);
             button3.Name = "button3";
-            button3.Size = new Size(113, 35);
+            button3.Size = new Size(126, 35);
             button3.TabIndex = 3;
             button3.Text = "Delete";
             button3.UseVisualStyleBackColor = true;
@@ -124,9 +125,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(125, 163);
+            button2.Location = new Point(138, 163);
             button2.Name = "button2";
-            button2.Size = new Size(113, 35);
+            button2.Size = new Size(126, 35);
             button2.TabIndex = 2;
             button2.Text = "Edit";
             button2.UseVisualStyleBackColor = true;
@@ -136,7 +137,7 @@
             // 
             button1.Location = new Point(6, 163);
             button1.Name = "button1";
-            button1.Size = new Size(113, 35);
+            button1.Size = new Size(126, 35);
             button1.TabIndex = 1;
             button1.Text = "New";
             button1.UseVisualStyleBackColor = true;
@@ -144,10 +145,10 @@
             // 
             // listView1
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader4, columnHeader2 });
+            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader4, columnHeader2, columnHeader3 });
             listView1.Location = new Point(6, 26);
             listView1.Name = "listView1";
-            listView1.Size = new Size(351, 131);
+            listView1.Size = new Size(390, 131);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
@@ -167,22 +168,27 @@
             columnHeader2.Text = "Protocol";
             columnHeader2.Width = 100;
             // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "State";
+            columnHeader3.Width = 100;
+            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(button9);
             groupBox2.Controls.Add(textBox2);
-            groupBox2.Location = new Point(386, 134);
+            groupBox2.Location = new Point(425, 134);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(289, 98);
+            groupBox2.Size = new Size(250, 98);
             groupBox2.TabIndex = 6;
             groupBox2.TabStop = false;
             groupBox2.Text = "Logs File";
             // 
             // button9
             // 
-            button9.Location = new Point(6, 57);
+            button9.Location = new Point(18, 57);
             button9.Name = "button9";
-            button9.Size = new Size(277, 35);
+            button9.Size = new Size(226, 35);
             button9.TabIndex = 2;
             button9.Text = "...";
             button9.UseVisualStyleBackColor = true;
@@ -190,27 +196,27 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(6, 26);
+            textBox2.Location = new Point(18, 26);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(277, 27);
+            textBox2.Size = new Size(226, 27);
             textBox2.TabIndex = 1;
             // 
             // groupBox3
             // 
             groupBox3.Controls.Add(button8);
             groupBox3.Controls.Add(textBox1);
-            groupBox3.Location = new Point(386, 28);
+            groupBox3.Location = new Point(425, 28);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(289, 100);
+            groupBox3.Size = new Size(250, 100);
             groupBox3.TabIndex = 7;
             groupBox3.TabStop = false;
             groupBox3.Text = "Database";
             // 
             // button8
             // 
-            button8.Location = new Point(6, 59);
+            button8.Location = new Point(18, 59);
             button8.Name = "button8";
-            button8.Size = new Size(277, 35);
+            button8.Size = new Size(226, 35);
             button8.TabIndex = 1;
             button8.Text = "...";
             button8.UseVisualStyleBackColor = true;
@@ -218,9 +224,9 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(6, 26);
+            textBox1.Location = new Point(18, 26);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(277, 27);
+            textBox1.Size = new Size(226, 27);
             textBox1.TabIndex = 0;
             // 
             // groupBox4
@@ -368,5 +374,6 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
+        private ColumnHeader columnHeader3;
     }
 }

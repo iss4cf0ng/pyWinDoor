@@ -57,7 +57,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, toolStripMenuItem3 });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(861, 27);
+            menuStrip1.Size = new Size(924, 27);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -86,9 +86,9 @@
             // 
             statusStrip1.Font = new Font("Microsoft JhengHei UI", 11.25F);
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(0, 594);
+            statusStrip1.Location = new Point(0, 560);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(861, 24);
+            statusStrip1.Size = new Size(924, 24);
             statusStrip1.TabIndex = 2;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -105,7 +105,7 @@
             listView1.FullRowSelect = true;
             listView1.Location = new Point(0, 27);
             listView1.Name = "listView1";
-            listView1.Size = new Size(861, 567);
+            listView1.Size = new Size(924, 533);
             listView1.TabIndex = 3;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
@@ -139,7 +139,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(861, 618);
+            ClientSize = new Size(924, 584);
             Controls.Add(listView1);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);

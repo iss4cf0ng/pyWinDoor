@@ -8,14 +8,14 @@ namespace pyWinDoor
             InitializeComponent();
         }
 
-        void setup()
+        void fnSetup()
         {
 
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            setup();
+            fnSetup();
         }
 
         //Build

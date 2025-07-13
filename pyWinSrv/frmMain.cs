@@ -15,6 +15,36 @@ namespace pyWinSrv
 
 
         #endregion
+
+        #region Write Logs
+
+        void fnWriteLogInfo(string szMsg)
+        {
+            richTextBox1.SelectionColor = Color.CornflowerBlue;
+            richTextBox1.AppendText("[*] ");
+            richTextBox1.SelectionColor = Color.White;
+            richTextBox1.AppendText(szMsg);
+            richTextBox1.AppendText(Environment.NewLine);
+        }
+        void fnWriteLogOK(string szMsg)
+        {
+            richTextBox1.SelectionColor = Color.LimeGreen;
+            richTextBox1.AppendText("[+] ");
+            richTextBox1.AppendText(szMsg);
+            richTextBox1.AppendText(Environment.NewLine);
+            richTextBox1.SelectionColor = Color.White;
+        }
+        void fnWriteLogFailed(string szMsg)
+        {
+            richTextBox1.SelectionColor = Color.Red;
+            richTextBox1.AppendText("[-] ");
+            richTextBox1.AppendText(szMsg);
+            richTextBox1.AppendText(Environment.NewLine);
+            richTextBox1.SelectionColor = Color.White;
+        }
+
+        #endregion
+
         #region Listener
 
         void fnLoadListener()
@@ -26,6 +56,7 @@ namespace pyWinSrv
                 ListViewItem item = new ListViewItem(l.szName);
                 item.SubItems.Add(l.nPort.ToString());
                 item.SubItems.Add(l.srvProtocol.ToString());
+                item.SubItems.Add("Stand by");
 
                 listView1.Items.Add(item);
             }
@@ -57,19 +88,42 @@ namespace pyWinSrv
             {
                 var l = m_dicListener[szName];
                 l.fnStart();
+
+                Invoke(new Action(() =>
+                {
+                    ListViewItem item = listView1.FindItemWithText(szName);
+                    item.SubItems[3].Text = "Listening";
+
+                    fnWriteLogInfo($"Start listener: {szName}");
+                }));
             }
         }
         void fnStopListener()
         {
+            foreach (string szName in m_dicListener.Keys)
+            {
+                var l = m_dicListener[szName];
+                l.fnStop();
 
+                Invoke(new Action(() =>
+                {
+                    ListViewItem item = listView1.FindItemWithText(szName);
+                    item.SubItems[3].Text = "Stand by";
+
+                    fnWriteLogInfo($"Stop listener: {szName}");
+                }));
+            }
         }
         void fnRestartListener()
         {
             //todo: stop all listener and start it again.
+            fnStopListener();
+            fnStartListener();
         }
         void fnExit()
         {
             //todo: stop all listener and exit application.
+            fnStopListener();
         }
 
         #endregion
@@ -82,6 +136,8 @@ namespace pyWinSrv
         {
             //Class
             m_sqlConn = new clsSqlite(szDbFileName);
+            m_sqlConn.ListenerSaved += fnWriteLogInfo;
+
             if (!m_sqlConn.m_bIsOpen)
             {
                 MessageBox.Show("Failed to initialize database.", "fnSetup()", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -188,12 +244,12 @@ namespace pyWinSrv
         //Restart
         private void button6_Click(object sender, EventArgs e)
         {
-            
+            Task.Run(() => fnRestartListener()).Start();
         }
         //Exit
         private void button7_Click(object sender, EventArgs e)
         {
-
+            Task.Run(() => fnExit()).Start();
         }
     }
 }

@@ -68,7 +68,7 @@ namespace pyWinSrv
 
         public delegate void dgLogsEventHandler(string szMsg);
         public event dgLogsEventHandler NewLogs;
-        public delegate void dgSaveListenerEventHandler();
+        public delegate void dgSaveListenerEventHandler(string szMsg);
         public event dgSaveListenerEventHandler ListenerSaved;
 
         #endregion
@@ -238,7 +238,7 @@ namespace pyWinSrv
             }
 
             //Save listener config successfully.
-            ListenerSaved();
+            ListenerSaved($"Saved listener: {szName}[Port:{nPort}]");
 
             return true;
         }

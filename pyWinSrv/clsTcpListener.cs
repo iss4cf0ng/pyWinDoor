@@ -23,6 +23,7 @@ namespace pyWinSrv
 
         public override void fnStart()
         {
+            m_tcpListener.Start();
             m_tcpListener.BeginAcceptSocket(new AsyncCallback(fnTcpListenerAcceptCallback), m_tcpListener);
         }
 
@@ -35,13 +36,19 @@ namespace pyWinSrv
             if (tcpListener == null)
                 return;
 
-            Socket sktClnt = tcpListener.EndAcceptSocket(ar);
-            
+            try
+            {
+                Socket sktClnt = tcpListener.EndAcceptSocket(ar);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         public override void fnStop()
         {
-
+            m_tcpListener.Stop();
         }
     }
 }
