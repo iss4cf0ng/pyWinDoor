@@ -4,6 +4,7 @@ namespace pyWinSrv
     {
         public clsSqlite m_sqlConn;
         private Dictionary<string, clsListener> m_dicListener = new Dictionary<string, clsListener>();
+        private clsTcpListener m_UserListener;
 
         public frmMain()
         {
@@ -162,8 +163,7 @@ namespace pyWinSrv
         //New
         private void button1_Click(object sender, EventArgs e)
         {
-            frmEditListener f = new frmEditListener();
-            f.m_sqlConn = m_sqlConn;
+            frmEditListener f = new frmEditListener(m_sqlConn, "");
 
             f.ShowDialog();
         }
@@ -175,11 +175,12 @@ namespace pyWinSrv
 
             ListViewItem item = listView1.SelectedItems[0];
 
-            frmEditListener f = new frmEditListener();
-            f.m_szName = item.Text;
-            f.m_sqlConn = m_sqlConn;
+            frmEditListener f = new frmEditListener(m_sqlConn, item.Text);
 
-            f.ShowDialog();
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                fnLoadListener();
+            }
         }
         //Delete
         private void button3_Click(object sender, EventArgs e)
@@ -244,12 +245,22 @@ namespace pyWinSrv
         //Restart
         private void button6_Click(object sender, EventArgs e)
         {
-            Task.Run(() => fnRestartListener()).Start();
+            new Thread(() => fnRestartListener()).Start();
         }
         //Exit
         private void button7_Click(object sender, EventArgs e)
         {
             Task.Run(() => fnExit()).Start();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            frmUserListener f = new frmUserListener();
+
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
     }
 }

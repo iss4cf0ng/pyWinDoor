@@ -12,12 +12,15 @@ namespace pyWinSrv
 {
     public partial class frmEditListener : Form
     {
-        public clsSqlite m_sqlConn;
-        public string m_szName;
+        private clsSqlite m_sqlConn;
+        private string m_szName;
 
-        public frmEditListener()
+        public frmEditListener(clsSqlite sqlConn, string szName)
         {
             InitializeComponent();
+
+            m_sqlConn = sqlConn;
+            m_szName = szName;
         }
 
         void fnSetup()
@@ -31,9 +34,15 @@ namespace pyWinSrv
             comboBox1.SelectedIndex = 0;
 
             if (!string.IsNullOrEmpty(m_szName))
-                textBox1.Text = m_szName;
-
-
+            {
+                var listener = m_sqlConn.fnGetListenerWithName(m_szName);
+                textBox1.Text = listener.szName;
+                numericUpDown1.Value = listener.nPort;
+                
+                for (int i = 0; i < comboBox1.Items.Count; i++)
+                    if (string.Equals(comboBox1.Items[i], listener.srvProtocol.ToString()))
+                        comboBox1.SelectedIndex = i;
+            }
         }
 
         private void frmEditListener_Load(object sender, EventArgs e)
@@ -60,8 +69,9 @@ namespace pyWinSrv
                 return;
             }
 
-            if (!m_sqlConn.fnbSaveListener(szName, nPort, sp))
+            if (m_sqlConn.fnbSaveListener(szName, nPort, sp))
             {
+                DialogResult = DialogResult.OK;
                 Close();
             }
             else

@@ -33,6 +33,8 @@ namespace pyWinSrv
         public string szName;
         public int nPort;
         public SrvProtocol srvProtocol;
+
+        public bool bIsNull { get { return string.IsNullOrEmpty(szName); } }
     }
 
     #endregion

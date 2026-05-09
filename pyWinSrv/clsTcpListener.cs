@@ -11,6 +11,7 @@ namespace pyWinSrv
     internal class clsTcpListener : clsListener
     {
         private TcpListener m_tcpListener;
+        public bool m_bIsListening { get; set; }
 
         public clsTcpListener(string szName, int nPort)
         {

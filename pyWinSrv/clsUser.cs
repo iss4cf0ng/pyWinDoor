@@ -18,7 +18,7 @@ namespace pyWinSrv
 
         public clsUser()
         {
-
+            m_sktUser = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
     }
 }

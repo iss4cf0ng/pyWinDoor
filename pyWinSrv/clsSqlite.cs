@@ -287,6 +287,18 @@ namespace pyWinSrv
             return lsResult;
         }
 
+        public tdfListener fnGetListenerWithName(string szName)
+        {
+            var lsListener = fnlsGetAllListener();
+            foreach (var listener in lsListener)
+            {
+                if (listener.szName == szName)
+                    return listener;
+            }
+
+            return new tdfListener() { szName = string.Empty };
+        }
+
         #endregion
     }
 }

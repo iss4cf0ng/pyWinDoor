@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             toolStrip1 = new ToolStrip();
@@ -55,7 +56,10 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
+            tabPage3 = new TabPage();
+            toolStripButton1 = new ToolStripButton();
             statusStrip1.SuspendLayout();
+            toolStrip1.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -68,7 +72,7 @@
             // 
             statusStrip1.Font = new Font("Microsoft JhengHei UI", 11.25F);
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(0, 525);
+            statusStrip1.Location = new Point(0, 584);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(897, 24);
             statusStrip1.TabIndex = 1;
@@ -82,9 +86,11 @@
             // 
             // toolStrip1
             // 
+            toolStrip1.Font = new Font("Microsoft JhengHei UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 136);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(897, 25);
+            toolStrip1.Size = new Size(897, 26);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -95,7 +101,7 @@
             richTextBox1.ForeColor = Color.Lime;
             richTextBox1.Location = new Point(3, 3);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(855, 246);
+            richTextBox1.Size = new Size(855, 305);
             richTextBox1.TabIndex = 4;
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
@@ -288,10 +294,11 @@
             tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
             tabControl1.Location = new Point(12, 238);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(869, 284);
+            tabControl1.Size = new Size(869, 343);
             tabControl1.TabIndex = 9;
             // 
             // tabPage1
@@ -300,9 +307,9 @@
             tabPage1.Location = new Point(4, 4);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(861, 252);
+            tabPage1.Size = new Size(861, 311);
             tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
+            tabPage1.Text = "Logs";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
@@ -310,16 +317,35 @@
             tabPage2.Location = new Point(4, 4);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(861, 256);
+            tabPage2.Size = new Size(861, 311);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
+            tabPage2.Text = "User";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            tabPage3.Location = new Point(4, 4);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Size = new Size(861, 311);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Victim";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // toolStripButton1
+            // 
+            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
+            toolStripButton1.ImageTransparentColor = Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new Size(68, 23);
+            toolStripButton1.Text = "Listener";
+            toolStripButton1.Click += toolStripButton1_Click;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(897, 549);
+            ClientSize = new Size(897, 608);
             Controls.Add(tabControl1);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
@@ -335,6 +361,8 @@
             Load += Form1_Load;
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
@@ -375,5 +403,7 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private ColumnHeader columnHeader3;
+        private TabPage tabPage3;
+        private ToolStripButton toolStripButton1;
     }
 }

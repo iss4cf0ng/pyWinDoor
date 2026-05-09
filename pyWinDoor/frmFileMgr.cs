@@ -12,9 +12,37 @@ namespace pyWinDoor
 {
     public partial class frmFileMgr : Form
     {
+        /// <summary>
+        /// pyWinDoor File Manager
+        /// 
+        /// Todo:
+        ///     File viewer
+        ///     Editor
+        ///     Copy
+        ///     Move
+        ///     Delete
+        ///     Upload
+        ///     Download
+        /// </summary>
+
         public frmFileMgr()
         {
             InitializeComponent();
+        }
+
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        void fnSetup()
+        {
+
+        }
+
+        private void frmFileMgr_Load(object sender, EventArgs e)
+        {
+            fnSetup();
         }
     }
 }
