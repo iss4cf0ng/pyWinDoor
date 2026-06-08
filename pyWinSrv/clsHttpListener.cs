@@ -11,6 +11,11 @@ namespace pyWinSrv
     {
         private HttpListener m_HttpListener;
 
+        /// <summary>
+        /// HTTP listener
+        /// </summary>
+        /// <param name="szName"></param>
+        /// <param name="nPort"></param>
         public clsHttpListener(string szName, int nPort)
         {
             m_szName = szName;

@@ -13,6 +13,11 @@ namespace pyWinSrv
         private TcpListener m_tcpListener;
         public bool m_bIsListening { get; set; }
 
+        /// <summary>
+        /// TCP listener
+        /// </summary>
+        /// <param name="szName"></param>
+        /// <param name="nPort"></param>
         public clsTcpListener(string szName, int nPort)
         {
             m_szName = szName;  

@@ -13,6 +13,11 @@ namespace pyWinSrv
         private UdpClient m_UdpClient;
         private bool m_IsListening;
 
+        /// <summary>
+        /// UDP listener
+        /// </summary>
+        /// <param name="szName"></param>
+        /// <param name="nPort"></param>
         public clsUdpListener(string szName, int nPort)
         {
             m_szName = szName;
