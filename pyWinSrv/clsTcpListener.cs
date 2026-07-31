@@ -14,7 +14,7 @@ namespace pyWinSrv
         public bool m_bIsListening { get; set; }
 
         /// <summary>
-        /// TCP listener
+        /// TCP C2 listener
         /// </summary>
         /// <param name="szName"></param>
         /// <param name="nPort"></param>

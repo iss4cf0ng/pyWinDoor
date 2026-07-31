@@ -8,6 +8,11 @@ namespace pyWinSrv
 {
     internal class clsTlsListener : clsListener
     {
+        /// <summary>
+        /// TLS C2 listener
+        /// </summary>
+        /// <param name="szName"></param>
+        /// <param name="nPort"></param>
         public clsTlsListener(string szName, int nPort)
         {
 

@@ -12,7 +12,7 @@ namespace pyWinSrv
         private HttpListener m_HttpListener;
 
         /// <summary>
-        /// HTTP listener
+        /// HTTP C2 listener
         /// </summary>
         /// <param name="szName"></param>
         /// <param name="nPort"></param>
